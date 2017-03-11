@@ -1,0 +1,18 @@
+---
+
+- name: Add APT Key for the NodeJS PPA
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
+  become: yes
+
+- name: Add PPA for NodeJS
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_6.x xenial main
+    state: present
+    filename: nodejs6
+  become: yes
+
+- name: Install node
+  apt: name=nodejs state=present
+  become: yes

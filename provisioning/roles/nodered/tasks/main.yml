@@ -1,0 +1,5 @@
+---
+
+- name: Install NodeRed
+  command: npm install -g --unsafe-perm node-red
+  become: yes
